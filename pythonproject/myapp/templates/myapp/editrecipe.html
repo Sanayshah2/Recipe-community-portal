@@ -1,0 +1,16 @@
+{% extends "myapp/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container" style="margin-top: 50px;"> 
+<form method="POST" enctype="multipart/form-data" class="col-md-offset-2 col-md-7">
+            {% csrf_token %}
+            <fieldset class='form-group'>
+                <h2 class='border-bottom mb-4'>Edit your Recipe </h2><br>
+                {{ form|crispy }}
+            </fieldset>  
+        <div class='form-group'>
+            <button class='btn btn-success btn-outline-success mb-2' type='submit'>Update Your Recipe</button>
+        </div>
+        </form>    
+</div> 
+{% endblock content %}

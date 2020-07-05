@@ -1,0 +1,29 @@
+{% extends "myapp/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<style>
+             body {
+    font-family: tahoma;
+    
+      background-image: url('/static/myapp/images/back3.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    }
+        </style>
+<div class="container" style="margin-top: 50px;font-family: candara;"> 
+<form method="POST" enctype="multipart/form-data" class="col-md-offset-2 col-md-7 " style="background-color:aliceblue; border-radius: 10px">
+            {% csrf_token %}
+            <fieldset class='form-group'>
+                <h2 class='border-bottom mb-4'>Edit your Profile </h2><br>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>  
+        <div class='form-group'>
+            <button class='btn btn-success btn-outline-success mb-2' type='submit'>Update Your Profile</button>
+        </div>
+        </form>    
+</div> 
+{% endblock content %}

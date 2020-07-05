@@ -1,0 +1,70 @@
+{% extends 'myapp/base.html' %}
+        {% load static %}
+        {% load crispy_forms_tags %}
+        {% block content %}
+        <style>
+             body {
+  
+  
+  
+  background-size: cover;
+  
+  
+  
+}
+        </style>
+        <div class="container-fluid" style="background-image: url('/static/myapp/images/grey1.jpeg');margin-bottom: 30px;margin-top: 50px;font-family: candara;">
+
+
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <div style="text-align: center;margin-top: 200px;"><h1 style="background-color:black; color: white;text-align: left;font-size: 60px;"><p style="margin: 20px;margin-bottom: 20px;">welcome to feast<br>your ultimate food destination</p></h1></div><br>
+                    <div style="font-size: 20px;color: white;">One of the finest recipes out there are to found at feast!</div><br>
+                    <p>{{dict_1.02}}</p>
+                    
+                    
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <img src="{% static "myapp/images/home.png" %}" class="img-responsive" alt="hii"  >
+
+                </div>
+
+            </div>
+          <a href="/myapp/recipes/" style="text-decoration: none;"> <div style="background-color: black;margin-top: 100px;"><h1 style="text-align: center;color: white;padding: 2px;font-size: 50px;" class="recipe">check our recipes </h1></div></a>
+        </div>  
+        
+        <div class="row" style="margin-top: 50px;margin-bottom: 40px;">
+          <div class=" col-md-offset-1 col-md-4 col-xs-12">
+              <img src="{% static "myapp/images/home1.png" %}"/ style="margin-left:70px;margin-top:30px;">
+          </div> 
+          <div class="col-md-offset-1 col-md-5 col-xs-offset-1 col-xs-12" style="margin-left: ;">
+           <h1 style="font-weight: lighter;color: black;font-size: 40px;font-family: candara;">About <p style="color: greenyellow;">feast</p> </h1>  <br>
+           <p style="font-stretch: semi-expanded;font-size: 20px;line-height: 40px;font-weight: light;font-family: candara;color: rgb(27, 25, 25);">One of the finest food and restaurant theme<br> on the net, cleaniest and simplistic<br> wordpress theme, browse it and experience<br> it Lorem Ipsum is simply dummy text of<br> the printing and typesetting</p>
+
+           </div>
+        </div>
+           <br> 
+            <div class="row" style="margin-top: 30px;color: rgb(27, 25, 25);margin-bottom: 50px;">
+               <div class="  col-md-4 col-xs-12">
+                  <center> <img src="{% static "myapp/images/recipe.jpg" %}" class="img-responsive" alt="hii" style="height: 200px;"></center>
+                  <div style=" text-align: center;margin-top: 60px;font-stretch: semi-expanded;font-size: 18px;line-height: 40px;font-weight: normal;font-family: candara;">Add your recipe and let the world<br> know your taste and learn from you<br>and spread smiles</div>                  
+
+               </div><br>
+               <div class="  col-md-4 col-xs-12">
+               <center> <img src="{% static "myapp/images/recipe1.jpg" %}" style="height: 200px;"  class="img-responsive" alt="hii" ></center>
+                        <div style=" text-align: center;margin-top: 40px;font-stretch: semi-expanded;font-size: 18px;line-height: 40px;font-weight: normal;font-family: candara;">Learn from our great list of recipes<br>and give your kids and family a surprise<br>of delicious food</div>
+            </div>
+            <div class="  col-md-4 col-xs-12">
+              <center>  <img src="{% static "myapp/images/rating.png" %}" class="img-responsive" alt="hii" style="margin-top: 100px;"></center>
+              <div style=" color: ; text-align: center;margin-top: 85px;font-stretch: semi-expanded;font-size: 18px;line-height: 40px;font-weight: normal;font-family: candara;">Rate our recipes and learn from some <br>of the highest rated recipesand even highest<br> rated chefs out there</div>
+            </div>
+           </div>    
+          </div>  
+          <div class="container">
+          
+          
+            
+          </div>
+            
+       {% endblock content %}  
+       

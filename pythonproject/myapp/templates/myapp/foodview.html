@@ -1,0 +1,107 @@
+{% extends 'myapp/base.html' %}
+        {% block content %}
+        <style>
+          .button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+        </style>
+        <div class="container-fluid " style="font-family: candara;margin-top: 50px;">
+            
+        <div class="col-md-offset-1 col-md-7  col-xs-12" style="">
+          <br>
+            
+        <div style="padding-bottom: 15px;margin-bottom: 20px;border-bottom: 1px solid gray;">
+          
+        <h2 style="font-weight: bolder;">{{food1.name}} </h2> <h3> &#128065;  {{count}} </h3>
+       </div>
+        
+        <div class="row " style="">
+            <div class="col-md-3 col-xs-12"><h4 style="font-weight: bolder;">Servings: {{food1.servings}}</h4></div>
+            <div class="col-md-3 col-xs-12"><h4 style="font-weight: bolder;">Cook time: {{food1.cook_time}} mins</h4></div>
+            <div class="col-md-3 col-xs-12"><h4 style="font-weight: bolder;">Prep time: {{food1.prep_time}} mins</h4></div>
+            <div class="col-md-3 col-xs-12"><h4 style="font-weight: bolder;">Difficulty: {{food1.difficulty}}</h4></div>
+            <div class="col-md-5 col-xs-12">
+              <h4 style="font-weight: bolder; float: left;">Average rating: </h4> <p style="float: left;margin-top: 20px;margin-left: 10px;font-size: 17px;">
+                {% if comments %}
+                {% for r in rate %}
+                <div style="float: left;margin-top: 10px;margin-right: 4px;"><p>&#9733;</p></div>
+                {% endfor %}
+                
+                {% else %}
+                <p style="float: left;margin-top: 8px;font-size: 17px;">Not rated yet</p>
+                {% endif %}
+              </p>
+              
+              </div>
+             
+            
+        </div>
+            
+        
+        <center><img src="/media/{{food1.image}}" alt="" style="width: 700px;height: 400px;margin-top: 30px;" class="img-responsive button1" /></center><br>
+        <hr>
+            <p style="font-size:15px ;line-height: 30px;margin-left: 10px;">-by Chef <a href='/profile/{{food1.author.profile.id}}/{{food1.author.username}}/'>{{food1.author.first_name}} {{ food1.author.last_name }}</a></p>
+            <p style="font-size:15px ;margin-left: 10px;">on {{food1.date_posted}}</p><br>
+        <h4 style="font-weight: bold;margin-left: 10px;">{{food1.desc}}</h4>
+        <h3 style="font-weight:bolder;margin-left: 10px;">Ingredients</h3>
+        <p style="margin-top: 20px;">
+        {% for i in ing %}
+        <li style="list-style-type: disc;font-size:17px ;line-height: 20px;margin-left: 20px;">{{i}}</li><br>
+        {% endfor %}
+        </p>  
+        
+        <h3 style="font-weight:bolder;margin-left: 10px;">Steps To Follow</h3>
+        <p style="font-size: 17px;line-height: 40px;margin-left: 20px;">{{food1.steps_to_follow|linebreaksbr }}</p>
+        
+        <hr>
+        <h3 style="margin-top: 30px;margin-bottom: 30px;margin-left: 10px;">Comments</h3>
+        <div style="margin-left: 10px;">
+          {% for c in comments %}
+            <li style="list-style-type: disc;line-height: 30px;font-size: 20px;">{{c.comment|linebreaksbr}}</li>
+            <li style="list-style-type: none;font-size: 14px;margin-left:20px ;">- by {{c.author}} rated {{c.rating}}.</li>
+            <li style="list-style-type: none;margin-bottom: 20px;font-size: 13px;margin-left:20px; color:gray;">- commented on {{c.date_posted|date:"F dS, o  "}}.</li>
+          {% endfor %}
+        </div>
+        <hr>
+        <div style="margin-bottom: 50px;">
+          <h3 style="margin-top: 60px;margin-bottom: 30px">Add Comment:</h3>
+          <form method="post" action = "/comment/{{food1.category}}/{{food1.id}}/{{food1.name}}/">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="formGroupExampleInput">Name:</label>
+                <input name = "comment_author" type="text" class="form-control" id="formGroupExampleInput" placeholder="Name" required>
+              </div>
+          
+            <div class="form-group">
+                <label for="formGroupExampleInput">Comment:</label>
+                <textarea name = "comment_content" class="form-control" rows="3" required></textarea></div>
+                <div class='form-group'><label for="formGroupExampleInput">Rating (1 to 5):</label>
+              <input type='range' name = "rating" class="form-control" rows="3" min='1' max='5' default='1'>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+
+          </form>
+        </div>
+            {% if user.username == food1.author.username %}
+        <div style="margin-bottom: 20px;">
+          <button type="submit" class="btn btn-success" ><a href='/recipes/{{food1.category}}/{{food1.id}}/{{food1.name}}/edit/' style="text-decoration: none; color:white">Edit recipe</a></button>     <button type="submit" class="btn btn-danger" ><a href='/myapp/recipes/{{food1.category}}/{{food1.name}}/delete/{{food1.id}}/{{user.id}}/{{user.username}}/' style="text-decoration: none; color:white">Delete</a></button>
+        </div>
+            {% endif %}
+        </div>
+        <div class=" sidenav col-md-3 col-xs-12 " style="margin-left: 40px;">
+          <br>
+             <h3>You may also like</h3>
+             <hr> 
+             
+               {% for a in allfoods %}
+               
+               <a href="/recipes/{{a.category}}/{{a.id}}/{{a.name}}" style="color: black;text-decoration: none;" ><h4 style="font-weight: bold;">{{a.name}}</h4></a>
+               <p style="margin-bottom: 25px;">- {{a.desc}}</p>
+               {% endfor %}
+              </div>
+        </div>
+        </div>
+        
+       {% endblock content %}

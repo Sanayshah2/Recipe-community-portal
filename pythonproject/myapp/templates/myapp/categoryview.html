@@ -1,0 +1,45 @@
+{% extends 'myapp/base.html' %}
+        {% load static %}
+        {% block content %}
+        <style>
+          .button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button {
+  background-color:green; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+        </style>
+        <div class="container" style="font-family: candara;margin-top: 50px;">
+        
+        <h1 style="padding: 50px;padding-top: 0px;font-size: 50px;">{{category.name}}</h1>
+            {% for f in food %}
+                
+                
+                <div class="card col-md-3 col-xs-12" style="margin-bottom: 40px;" >
+                    <img src="/media/{{f.image}}" style="width: 250px;height: 250px ;" class="button1" alt="...">
+                    <div class="card-body">
+                      <h3 class="card-title">{{f.name}}</h3>
+                      <p class="card-text" style="margin-top: 15px;">{{f.desc}}</p>
+                      <a href="/recipes/{{category.name}}/{{f.id}}/{{f.name}}" class="button button2"  style="color: white;text-decoration: none;">Full recipe</a>
+                    </div>
+                  </div>
+                
+            {% endfor %}
+        
+        </div>
+        {% endblock content %}
+    

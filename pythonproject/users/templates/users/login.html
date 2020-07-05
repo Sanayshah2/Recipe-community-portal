@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+        <div class="col-md-offset-4 col-md-4" style="margin-top: 50px;font-family: candara;">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h2>Login</h2>
+            {{ form|crispy }}
+            <br>
+        <div class='form-group'>
+            <button class='btn btn-success mb-2' type='submit'>Sign In</button>&ensp; <a href={% url 'password_reset' %}>Forgot password</a>
+        </div>
+        </form>
+            <div class='border-top pt-2'>
+            <small class='text-muted'>Don't have an Account? You can create one in just a few steps.</small> <a class='ml-2' href={% url 'register' %}>Sign Up</a>
+        </div>
+        </div>
+
+
+
+
+{% endblock content %}

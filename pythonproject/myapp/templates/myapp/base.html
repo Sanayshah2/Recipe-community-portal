@@ -1,0 +1,266 @@
+<html>
+    <head>
+        <title>feast</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+     <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+  @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+    .navbar-brand {
+      font-family: candara;
+      font-size: 30px;
+    }
+
+    .navbar .nav {
+      font-family: candara;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 1.2rem
+    }
+
+    .navbar-inverse {
+      background-color: black
+    }
+
+    .navbar-inverse .navbar-nav>.active>a:hover,
+    .navbar-inverse .navbar-nav>li>a:hover,
+    .navbar-inverse .navbar-nav>li>a:focus {
+      background-color: #002200
+    }
+
+    .navbar-inverse .navbar-nav>.active>a,
+    .navbar-inverse .navbar-nav>.open>a,
+    .navbar-inverse .navbar-nav>.open>a,
+    .navbar-inverse .navbar-nav>.open>a:hover,
+    .navbar-inverse .navbar-nav>.open>a,
+    .navbar-inverse .navbar-nav>.open>a:hover,
+    .navbar-inverse .navbar-nav>.open>a:focus {
+      background-color: #003300
+    }
+
+    .dropdown-menu {
+      background-color: #006B00
+    }
+
+    .dropdown-menu>li>a:hover,
+    .dropdown-menu>li>a:focus {
+      background-color: #36a136
+    }
+
+    .navbar-inverse {
+      background-image: none;
+    }
+
+    .dropdown-menu>li>a:hover,
+    .dropdown-menu>li>a:focus {
+      background-image: none;
+    }
+
+    .navbar-inverse {
+      border-color: #36a136
+    }
+
+    .navbar-inverse .navbar-brand {
+      color: #FFFFFF
+    }
+
+    .navbar-inverse .navbar-brand:hover {
+      color: #FFCC00
+    }
+
+    .navbar-inverse .navbar-nav>li>a {
+      color: #FFFFFF
+    }
+
+    .navbar-inverse .navbar-nav>li>a:hover,
+    .navbar-inverse .navbar-nav>li>a:focus {
+      color: #FFCC00
+    }
+
+    .navbar-inverse .navbar-nav>.active>a,
+    .navbar-inverse .navbar-nav>.open>a,
+    .navbar-inverse .navbar-nav>.open>a:hover,
+    .navbar-inverse .navbar-nav>.open>a:focus {
+      color: #FFCC00
+    }
+
+    .navbar-inverse .navbar-nav>.active>a:hover,
+    .navbar-inverse .navbar-nav>.active>a:focus {
+      color: #FFCC00
+    }
+
+    .dropdown-menu>li>a {
+      color: #FFFFFF
+    }
+
+    .dropdown-menu>li>a:hover,
+    .dropdown-menu>li>a:focus {
+      color: #FFCC00
+    }
+
+    .navbar-inverse .navbar-nav>.dropdown>a .caret {
+      border-top-color: #FFFFFF
+    }
+
+    .navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+      border-top-color: #FFFFFF
+    }
+
+    .navbar-inverse .navbar-nav>.dropdown>a .caret {
+      border-bottom-color: #FFFFFF
+    }
+
+    .navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+      border-bottom-color: #FFFFFF
+    }
+    
+    
+    
+    
+    
+    .content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+
+</style>
+
+
+</head>
+    <body>
+      <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner" style="font-family: candara;">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href={% url "home" %}  class="navbar-brand">feast</a>
+          </div>
+          <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+              
+              
+              <li>
+                <a href={% url "chefs" %}>Our chefs</a>
+              </li>
+              <li>
+                <a href={% url "recipes" %}>Recipes</a>
+              </li>
+                  {% if user.is_authenticated %}
+                    <li><a href={% url "foodform" user.username%}>Add Recipe</a></li>
+                    <li><a href='/profile/{{user.profile.id}}/{{user.username}}'>My Profile</a></li>
+                  <li><a href='myModal69' data-toggle="modal" data-target="#myModal69">Logout</a></li>
+                  {% else %}
+                  <li><a href={% url "login" %}>Login</a></li>
+                  <li><a href={% url "register" %}>Register</a></li> 
+                  {% endif %}
+              
+            </ul>
+          </nav>
+        </div>
+      </header>
+        
+        {% if messages %}
+        <br><br><br>
+        {% for x in messages %}
+        <div class='alert alert-{{ x.tags }}' >
+            <strong>{{ x }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+{% block content %}{% endblock content %}
+        
+       <!-- Modal -->
+            <div class="modal fade" id="myModal69" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content" style="font-family: candara;">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style='color: black'>Log Out</h4>
+                  </div>
+                  <div class="modal-body" style='color: black'>
+                      Are you sure you want to Log Out?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                      <a href='{% url 'logout' %}'><button type="button" class="btn btn-danger">Log Out</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+    </body>
+</html>
